@@ -9,6 +9,7 @@ use App\Filament\Resources\Categories\Schemas\CategoryForm;
 use App\Filament\Resources\Categories\Tables\CategoriesTable;
 use App\Models\Category;
 use BackedEnum;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -24,7 +25,10 @@ class CategoryResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
+        
         return CategoryForm::configure($schema);
+       
+       
     }
 
     public static function table(Table $table): Table
