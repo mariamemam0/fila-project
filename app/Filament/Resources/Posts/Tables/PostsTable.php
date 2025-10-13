@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -24,6 +25,8 @@ class PostsTable
                     ->searchable(),
                 IconColumn::make('is_published')
                     ->boolean(),
+             SpatieMediaLibraryImageColumn::make('thumbnail')->collection('posts'),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
