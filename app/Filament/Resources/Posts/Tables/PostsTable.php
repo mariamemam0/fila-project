@@ -16,7 +16,7 @@ class PostsTable
     {
         return $table
             ->columns([
-                TextColumn::make('category_id')
+                TextColumn::make('id')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('title')
@@ -27,14 +27,6 @@ class PostsTable
                     ->boolean(),
              SpatieMediaLibraryImageColumn::make('thumbnail')->collection('posts'),
 
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

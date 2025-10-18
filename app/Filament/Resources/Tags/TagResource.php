@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Tags;
 use App\Filament\Resources\Tags\Pages\CreateTag;
 use App\Filament\Resources\Tags\Pages\EditTag;
 use App\Filament\Resources\Tags\Pages\ListTags;
+use App\Filament\Resources\Tags\RelationManagers\PostsRelationManager;
 use App\Filament\Resources\Tags\Schemas\TagForm;
 use App\Filament\Resources\Tags\Tables\TagsTable;
 use App\Models\Tag;
@@ -20,7 +21,7 @@ class TagResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Tag';
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {
@@ -35,7 +36,7 @@ class TagResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            PostsRelationManager::class,
         ];
     }
 

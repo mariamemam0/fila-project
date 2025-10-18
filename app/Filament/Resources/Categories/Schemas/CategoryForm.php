@@ -24,6 +24,7 @@ class CategoryForm
                                 ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))
                                 ->required(),
                             TextInput::make('slug')->required(),
+
                             // ]),  
                         ]
                     )->columnSpanFull(),
