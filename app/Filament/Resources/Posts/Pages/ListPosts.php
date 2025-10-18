@@ -3,8 +3,10 @@
 namespace App\Filament\Resources\Posts\Pages;
 
 use App\Filament\Resources\Posts\PostResource;
+use App\Filament\Resources\Posts\Widgets\StatsOverview;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+
 
 class ListPosts extends ListRecords
 {
@@ -14,6 +16,13 @@ class ListPosts extends ListRecords
     {
         return [
             CreateAction::make(),
+        ];
+    }
+
+     protected function getHeaderWidgets(): array
+    {
+        return [
+             StatsOverview::class,
         ];
     }
 }
