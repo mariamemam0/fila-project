@@ -11,7 +11,8 @@ class StatsOverview extends StatsOverviewWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('All Posts', Post::all()->count()),
+            Stat::make('All Posts', Post::all()->count())->description('32k increase')
+            ->descriptionIcon('heroicon-m-arrow-trending-up')->color('danger'),
             Stat::make('Bounce rate', '21%'),
             Stat::make('Average time on page', '3:12'),
         ];
