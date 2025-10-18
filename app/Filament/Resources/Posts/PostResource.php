@@ -8,12 +8,14 @@ use App\Filament\Resources\Posts\Pages\ListPosts;
 use App\Filament\Resources\Posts\RelationManagers\TagsRelationManager;
 use App\Filament\Resources\Posts\Schemas\PostForm;
 use App\Filament\Resources\Posts\Tables\PostsTable;
+use App\Filament\Resources\Posts\Widgets\StatsOverview;
 use App\Models\Post;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Filament\Widgets\StatsOverviewWidget;
 
 class PostResource extends Resource
 {
@@ -21,7 +23,7 @@ class PostResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Post';
+    protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema
     {
@@ -38,6 +40,13 @@ class PostResource extends Resource
         return [
             TagsRelationManager::class,
         ];
+    }
+
+    public static function getWidgets(): array
+    {
+         return[
+            StatsOverview::class,
+         ];
     }
 
     public static function getPages(): array
